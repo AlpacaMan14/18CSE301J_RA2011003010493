@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Energy Use Emissions Graph</title>
+	<style>
+		/* Style for the container div */
+		#my_dataviz {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+		}
+		/* Style for the svg */
+		svg {
+			background-color: #f5f5f5;
+			border: 1px solid #ddd;
+			box-shadow: 0 0 5px rgba(0,0,0,.1);
+		}
+		/* Style for the axes */
+		.axis path,
+		.axis line {
+			fill: none;
+			stroke: #000;
+			shape-rendering: crispEdges;
+		}
+		/* Style for the tick labels */
+		.axis text {
+			font-size: 14px;
+			font-family: sans-serif;
+		}
+		/* Style for the bars */
+		rect {
+			fill: #69b3a2;
+		}
+	</style>
+</head>
+<body>
+	<!-- Create a div where the graph will take place -->
+	<div id="my_dataviz"></div>
+  <!-- Load d3.js -->
+<script src="https://d3js.org/d3.v4.js"></script>
+<script>
+	// Set the dimensions and margins of the graph
+	var margin = {top: 20, right: 40, bottom: 40, left: 150},
+		width = 800 - margin.left - margin.right,
+		height = 600 - margin.top - margin.bottom;
+    
+	// Append the svg object to the body of the page
+	var svg = d3.select("#my_dataviz")
+		.append("svg")
+			.attr("width", width + margin.left + margin.right)
+			.attr("height", height + margin.top + margin.bottom)
+		.append("g")
+			.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    
+	// Parse the data
+	d3.csv("Energy Use Emissions.csv", function(data) {
+    
+		// Add X axis
+		var x = d3.scaleLinear()
+			.domain([0, 220000])
+			.range([0, width]);
+		svg.append("g")
+			.attr("transform", "translate(0," + height + ")")
+			.call(d3.axisBottom(x))
+			.selectAll("text")
+				.attr("transform", "translate(-10,0)rotate(-45)")
+				.style("text-anchor", "end");
+    
+		// Y axis
+		var y = d3.scaleBand()
+			.range([0, height])
+			.domain(data.map(function(d) { return d.Item; }))
+			.padding(.1);
+		svg.append("g")
+			.call(d3.axisLeft(y))
+    
+		// Bars
+		svg.selectAll("rect")
+			.data(data)
+			.enter()
+			.append("rect")
+			.attr("x", x(0))
+			.attr("y", function(d) { return y(d.Item); })
+			.attr("width", function(d) { return x(d.Value); })
+			.attr("height", y.bandwidth())
+	});
+
+</script>
+</body>
+</html>
