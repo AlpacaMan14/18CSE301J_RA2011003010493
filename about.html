@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Greenhouse Gas Emissions in Agriculture</title>
+    <style>
+      /* Global styles */
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      header {
+        background-color: #333;
+        color: #fff;
+        padding: 10px;
+      }
+
+      nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: flex-end; /* Add to align items to the right */
+      }
+
+      nav li {
+        margin-left: 20px; /* Modify to add spacing between items */
+      }
+
+      nav a {
+        color: #fff;
+        text-decoration: none;
+      }
+
+      nav a:hover { /* Add hover effect */
+        text-decoration: underline;
+      }
+
+      main {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      /* Home section styles */
+      #home h1 {
+        font-size: 36px;
+        margin-top: 0;
+      }
+
+      #home ul {
+        list-style: disc;
+        margin-left: 20px;
+      }
+
+      /* About section styles */
+      #about h1 {
+        font-size: 36px;
+        margin-top: 0;
+      }
+
+      /* Responsive styles */
+      @media screen and (max-width: 600px) {
+        nav ul {
+          flex-direction: column;
+        }
+
+        nav li {
+          margin-bottom: 10px;
+          margin-left: 0; /* Modify to remove spacing between items */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>18CSE301J_RA2011003010493</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section>
+        <h1>Greenhouse Gas Emissions in Agriculture</h1>
+        <p>The data set used in this report contains Greenhouse gas emissions like Carbon Dioxide(CO2), Nitrous oxide(N2O) and Methane(CH4) from direct on farm energy use related to fuel combustion and electricity generation in Agriculture.</p>
+        <p>The data set contains all countries and their emissions of these green house gasses for every type of fuel combustion. The Fuels include:</p>
+        <ul>
+          <li>Gas-Diesel Oil</li>
+          <li>Motor Gasoline</li>
+          <li>Natural Gas (Including LNG)</li>
+          <li>Liquefied Petroleum Gas (LPG)</li>
+          <li>Fuel Oil</li>
+          <li>Coal</li>
+          <li>Electricity</li>
+        </ul>
+        <p>This data is also divided further on the basis of year. There is data for the years 2013 to 2019 for every country for every emission for all the fuels stated above.</p>
+        <p> The following is a DBSchema for the dataset:</p>
+        <img src="DBSchema.png" alt="Image 1">
+        <h1>Sources and references</h1>
+        <ul>
+          <li><a href="https://www.fao.org/faostat/en/#home">Energy Use Emission Dataset source</a></li>
+          <li><a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/ZZH3UB">Dataset for Harvard</a></li>
+          <li><a href="https://d3-graph-gallery.com/index.html">References for D3 Visualizations</a></li>
+          <li><a href="https://www.python-graph-gallery.com/choropleth-map/">Python Visualization Refernce</a></li>
+          <li><a href="https://plotly.com/graphing-libraries/">Plotly Documentation</a></li>
+          <li><a href="https://mdl.library.utoronto.ca/technology/tutorials/visualizing-network-dataset-using-gephi">Referneces for Gephi</a></li>
+      </section>
+    </main>
+  </body>
+</html>
